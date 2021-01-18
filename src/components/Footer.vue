@@ -32,7 +32,7 @@ footer {
   font-size: 1.5vw;
   font-family: montserrat;
   line-height: 2.5vw;
-  width: 100vw;
+  width: 100%;
 }
 footer h2 {
   text-decoration: underline;

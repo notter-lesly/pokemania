@@ -8,6 +8,7 @@
       <ul class="menu">
      <a><router-link to="/">Home</router-link> </a>
    <a> <router-link to="/random">Random</router-link></a>
+   <a> <router-link to="/categories"> Categories </router-link></a>
 
       </ul>
       </header>
@@ -16,10 +17,10 @@
       <script>
 
 export default{
-    name: 'Header'
+    name: "Header"
 }
           </script>
-<style scoped>
+<style>
 header {
   width: 100%;
   position: fixed;
@@ -40,6 +41,7 @@ header {
 }
 .logo {
   display: flex;
+  padding:0;
 }
 .logo h1 {
   font-family: "Gloria Hallelujah", cursive;
