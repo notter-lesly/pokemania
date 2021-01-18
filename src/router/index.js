@@ -14,10 +14,16 @@ const routes = [
     component: () => import('../views/Random.vue')
   },
   {
+    path: '/categories',
+    name: 'Categories',
+    component: () => import('../views/Categories.vue')
+  },
+  {
     path: '/detail/:name',
     name: 'Detail',
     component: () => import('../views/Detail.vue')
   }
+  
 ]
 
 const router = createRouter({
