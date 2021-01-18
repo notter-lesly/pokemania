@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Pokemania from '../components/Pokemania.vue'
+import Pokemania from '../views/Pokemania.vue'
+
 
 const routes = [
   {
@@ -13,11 +14,10 @@ const routes = [
     component: () => import('../views/Random.vue')
   },
   {
-    path: '/detail',
+    path: '/detail/:name',
     name: 'Detail',
     component: () => import('../views/Detail.vue')
   }
-
 ]
 
 const router = createRouter({

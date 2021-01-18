@@ -1,78 +1,66 @@
+
+
 <template>
   <div id="myApp">
-    
+    <h1 class="subtitle">{{ subtitle }}</h1>
+    <button>Sort</button>
 
-    <div>
-      <h1 class="subtitle">{{ subtitle }}</h1>
-      <button>Sort</button>
 
-      <section class="pokes">
-        <div name="poke1">
-            <router-link to="/detail"><img src="../assets/imgs/pika.png" @click="searchPoke('pikachu')" />  </router-link> 
-          
-        </div>
-        <div class="poke2">
-          <img src="../assets/imgs/gengar.png" @click="searchPoke('gengar')" />
-        </div>
-        <div class="poke3">
-          <img
-            src="../assets/imgs/bulba.png"
-            @click="searchPoke('bulbasaur')"
-          />
-        </div>
-        <div class="poke4">
-          <img
-            src="../assets/imgs/squirtle.png"
-            @click="searchPoke('squirtle')"
-          />
-        </div>
-        <div class="poke5">
-          <img
-            src="../assets/imgs/char.png"
-            @click="searchPoke('charmander')"
-          />
-        </div>
-        <div class="poke6">
-          <img
-            src="../assets/imgs/chicorita.png"
-            @click="searchPoke('chikorita')"
-          />
-        </div>
-        <div class="poke7">
-          <img src="../assets/imgs/eeve.png" @click="searchPoke('eevee')" />
-        </div>
-        <div class="poke8">
-          <img
-            src="../assets/imgs/jiggly.png"
-            @click="searchPoke('jigglypuff')"
-          />
-        </div>
-        <div class="poke9">
-          <img src="../assets/imgs/psy.png" @click="searchPoke('psyduck')" />
-        </div>
-        <div class="poke10">
-          <img src="../assets/imgs/pigeot.png" @click="searchPoke('pidgeot')" />
-        </div>
-      </section>
-    </div>
-
-    <footer>
-      <h2>Site map</h2>
-      <div class="footerOrg">
-        <ul>
-          <li><a> Home</a></li>
-          <li><a> Pokemons</a></li>
-          <li><a> Random Pokemon</a></li>
-        </ul>
-
-        <ul>
-          <li>Contact us</li>
-          <li>Adress: noonono</li>
-          <li>Telephone: 00000</li>
-        </ul>
+    <section class="pokes">
+      <div>
+        <router-link :to="{ name: 'Detail', params: { name: 'pikachu' } }"
+          ><img src="../assets/imgs/pika.png" />
+        </router-link>
       </div>
-    </footer>
-  </div>
+      <div name="gengar" >
+        <router-link :to="{ name: 'Detail', params: { name: 'gengar' } }"
+          ><img src="../assets/imgs/gengar.png" />
+        </router-link>
+      </div>
+      <div>
+        <router-link :to="{ name: 'Detail', params: { name: 'bulbasaur' } }">
+          <img src="../assets/imgs/bulba.png" />
+        </router-link>
+      </div>
+      <div >
+        <router-link :to="{ name: 'Detail', params: { name: 'squirtle' } }">
+          <img src="../assets/imgs/squirtle.png" />
+        </router-link>
+      </div>
+      <div >
+        <router-link :to="{ name: 'Detail', params: { name: 'charmander' } }">
+          <img src="../assets/imgs/char.png" />
+        </router-link>
+      </div>
+      <div >
+        <router-link :to="{ name: 'Detail', params: { name: 'chikorita' } }">
+          <img src="../assets/imgs/chicorita.png" />
+        </router-link>
+      </div>
+      <div>
+        <router-link :to="{ name: 'Detail', params: { name: 'eevee' } }">
+          <img src="../assets/imgs/eeve.png" />
+        </router-link>
+      </div>
+      <div >
+        <router-link :to="{ name: 'Detail', params: { name: 'jigglypuff' } }">
+          <img src="../assets/imgs/jiggly.png" />
+        </router-link>
+      </div>
+      <div>
+        <router-link :to="{ name: 'Detail', params: { name: 'psyduck' } }">
+          <img src="../assets/imgs/psy.png" />
+        </router-link>
+      </div>
+      <div >
+        <router-link :to="{ name: 'Detail', params: { name: 'pidgeot' } }">
+          <img src="../assets/imgs/pigeot.png" />
+        </router-link>
+      </div>
+  
+    </section>
+        </div>
+ 
 </template>
 
 <script>
@@ -91,6 +79,7 @@ export default {
       h1: "WHO IS THIS POKEMON?",
       button: "TRY",
       home: "pokemania.html",
+        
     };
   },
 
@@ -116,13 +105,14 @@ export default {
           this.image = poke1.sprites.front_default;
         });
     },
+      
+        
   },
 };
 </script>
 
 <style>
-html,
-body,
+html, body,
 div,
 span,
 applet,
@@ -264,7 +254,6 @@ header {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
 #myApp {
   background-color: rgb(46, 46, 95);
 }
@@ -272,7 +261,7 @@ header {
 button {
   width: 50px;
   background-color: rgb(250, 133, 0);
-  color:black;
+  color: black;
 }
 
 img {
@@ -289,30 +278,5 @@ section {
   flex-wrap: wrap;
   justify-content: center;
   width: 100vw;
-}
-
-
-
-footer {
-  background-color: black;
-  color: white;
-  font-size: 1.5vw;
-  font-family: montserrat;
-  line-height: 2.5vw;
-  width: 100vw;
-}
-footer h2 {
-  text-decoration: underline;
-}
-
-footer a,
-li {
-  text-decoration: none;
-  color: rgb(156, 151, 151);
-}
-
-.footerOrg {
-  display: flex;
-  justify-content: space-around;
 }
 </style>
