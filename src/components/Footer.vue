@@ -1,33 +1,42 @@
 <template>
   <footer>
-      <h2>Site map</h2>
-      <div class="footerOrg">
-        <ul>
-          <li><a> Home</a></li>
-          <li><a> Pokemons</a></li>
-          <li><a> Random Pokemon</a></li>
-        </ul>
-        <ul>
-          <li>Contact us</li>
-          <li>Adress: noonono</li>
-          <li>Telephone: 00000</li>
-        </ul>
-      </div>
-    </footer>
+    <h2>Site map</h2>
+    <div class="footerOrg">
+      <ul>
+        <h3>LINKS</h3>
+        <li>
+          <a> <router-link to="/">Home</router-link></a>
+        </li>
+        <li>
+          <a> <router-link to="/random">Random</router-link></a>
+        </li>
+        <li>
+          <a> <router-link to="/categories"> Categories </router-link></a>
+        </li>
+      </ul>
+      <ul>
+        <h3>CONTACT</h3>
+        <li><a href="https://github.com/notter-lesly">Github</a></li>
+        <li><a href="https://www.linkedin.com/in/leslynotter">Linkedin</a></li>
+        <li>
+          <a href="https://api.whatsapp.com/send?phone=310627586099"
+            >Whatsapp</a
+          >
+        </li>
+      </ul>
+    </div>
+  </footer>
 </template>
 
 <script>
-export default{
-  name: "Footer"
-}
-
+export default {
+  name: "Footer",
+};
 </script>
 
 <style scoped>
-
-
 footer {
-  background-color: black;
+  background-color: rgb(26, 26, 26);
   color: white;
   font-size: 1.5vw;
   font-family: montserrat;
@@ -43,9 +52,15 @@ li {
   text-decoration: none;
   color: rgb(156, 151, 151);
 }
+footer h3 {
+  font-size: 1.5vw;
+}
 
 .footerOrg {
   display: flex;
   justify-content: space-around;
+  margin-left: -10vw;
+  margin-right: -10vw;
+  margin-top: 2vw;
 }
 </style>
