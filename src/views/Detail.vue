@@ -12,7 +12,7 @@
 
       <div class="line"></div>
 
-      <h2 class="detailH2">{{pokemonType}} TYPE POKEMONS</h2>
+      <h2 class="detailH2">{{ pokemonType }} TYPE POKEMONS</h2>
       <div class="others">
         <ul>
           <li><img :src="image2" /></li>
@@ -48,14 +48,14 @@ export default {
   data() {
     return {
       poke1: "",
-      poke2:"",
-      poke3:"",
-      poke4:"",
-      image:"",
-      image2:"",
-      image3:"",
-      image4:"",
-      pokemonType:"",
+      poke2: "",
+      poke3: "",
+      poke4: "",
+      image: "",
+      image2: "",
+      image3: "",
+      image4: "",
+      pokemonType: "",
       subtitle: "CHOOSE YOUR POKEMON",
       link: "detailedPage.html",
       name: "",
@@ -114,7 +114,6 @@ export default {
   },
   beforeMount() {
     this.searchPoke(this.$route.params.name);
-    
   },
 };
 </script>
@@ -132,7 +131,6 @@ export default {
   font-size: 6vw;
   text-align: center;
 }
-
 
 .detail li {
   list-style: none;

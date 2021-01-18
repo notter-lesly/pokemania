@@ -1,33 +1,22 @@
 <template>
+  <div id="myRandom">
+    <h1>{{ h1 }}</h1>
 
+    <img class="randomImage" :src="image" />
 
-    <div id="myRandom">
-  
-      <h1>{{ h1 }}</h1>
-        
-     
-        
-        <img class="randomImage" :src="image" />
-      
-      <ul>
-        <button @click="randomPoke()">{{ button }}</button>
-        <h2>IT IS: {{ random.name }}</h2>
-        <li>Id:{{ random.id }}</li>
-        <li>Height:{{ random.height }}</li>
-        <li>Weight: {{ random.weight }}</li>
-      
-      </ul>
+    <ul>
+      <button @click="randomPoke()">{{ button }}</button>
+      <h2>IT IS: {{ random.name }}</h2>
+      <li>Id:{{ random.id }}</li>
+      <li>Height:{{ random.height }}</li>
+      <li>Weight: {{ random.weight }}</li>
+    </ul>
 
-       <div class="line"></div>
-      <h2> SHINY VERSION </h2>
-       
-        
-          <img class="randomImage" :src="image2">
-            
+    <div class="line"></div>
+    <h2>SHINY VERSION</h2>
 
+    <img class="randomImage" :src="image2" />
   </div>
-
-
 </template>
 
 <script>
@@ -43,7 +32,7 @@ export default {
       companyName: "PokeMania",
       random: "",
       image: "",
-      image2:"",
+      image2: "",
       h1: "WHO IS THIS POKEMON?",
       button: "TRY",
       home: "pokemania.html",
@@ -60,8 +49,7 @@ export default {
           this.random = random;
           this.image = random.sprites.front_default;
           this.image2 = random.sprites.front_shiny;
-          this.random.name = this.random.name.toUpperCase() 
-         
+          this.random.name = this.random.name.toUpperCase();
         });
     },
 
@@ -71,7 +59,7 @@ export default {
         .then((poke1) => {
           this.poke1 = poke1;
           this.image = poke1.sprites.front_default;
-           this.poke1.name = this.poke1.name.toUpperCase()
+          this.poke1.name = this.poke1.name.toUpperCase();
         });
     },
   },
@@ -82,39 +70,36 @@ export default {
 </script>
 
 <style>
-
-
-
+header {
+  width: 100%;
+}
 
 #myRandom {
   background-color: rgb(46, 46, 95);
-  
-  
 }
 #myRandom h1 {
-  font-size:4vw;
+  font-size: 4vw;
   padding-top: 5vw;
   text-align: center;
-  color:  rgba(255, 255, 255, 0.801);
+  color: rgba(255, 255, 255, 0.801);
 }
 
 #myRandom h2 {
-  font-size:3vw;
-  padding-top:2vw;
+  font-size: 3vw;
+  padding-top: 2vw;
   text-align: center;
   color: white;
 }
 #myRandom button {
- 
-   background-color: rgb(250, 133, 0);
+  background-color: rgb(250, 133, 0);
   color: black;
   margin: auto;
   text-align: center;
-font-size:2vw;
+  font-size: 2vw;
   font-family: montserrat;
   font-weight: bold;
   border-radius: 0.5vw;
-  border:0.1vw;
+  border: 0.1vw;
   cursor: pointer;
   width: 8vw;
 }
@@ -124,25 +109,23 @@ font-size:2vw;
   line-height: 3vw;
 }
 
-
-
 .randomImage {
   width: 15vw;
   height: 15vw;
   border: none;
   cursor: auto;
-  margin:auto;
-  display:block;
-   padding-top: 4vw;
+  margin: auto;
+  display: block;
+  padding-top: 4vw;
   margin-top: 3vw;
 }
 
 #myRandom li {
-  font-size:2vw;
+  font-size: 2vw;
   list-style: none;
   line-height: 5vw;
   text-align: center;
- color: rgb(156, 156, 156);
+  color: rgb(156, 156, 156);
 }
 
 .line {
@@ -152,70 +135,50 @@ font-size:2vw;
   margin: auto;
 }
 
-
 @media only screen and (min-width: 600px) {
-  header{
-  min-height: 4vw;
-}
+  footer {
+    min-height: 10vw;
+  }
+  #myRandom {
+    min-height: 100vh;
+  }
+  #myRandom h1 {
+    font-size: 4vw;
+    padding-top: 10vw;
+  }
+  .randomImage {
+    width: 20vw;
+    height: 20vw;
+  }
 
-footer{
-   min-height:10vw;
-
-}
- #myRandom{
-   min-height: 94vh;
-}
-#myRandom h1 {
-  font-size:4vw;
-  padding-top: 10vw;
-
-}
-.randomImage {
-width: 20vw;
-height: 20vw;
-
-}
-
-footer{
-   min-height:10vw;
-
-}
-#myRandom{
-   min-height: 50vh;
-}
+  footer {
+    min-height: 10vw;
+  }
+  #myRandom {
+    min-height: 50vh;
+  }
 }
 
 @media only screen and (max-width: 600px) {
+  header a {
+    font-size: 7vw;
+  }
 
-header a{
-  font-size:7vw;
+  .randomImage {
+    width: 30vw;
+    height: 30vw;
+  }
+
+  #myRandom {
+    min-height: 100vh;
+  }
+  #myRandom h1 {
+    font-size: 4vw;
+    padding-top: 30vw;
+  }
+
+  .randomImage {
+    padding: 10vw;
+  }
 }
-
-.randomImage {
-width: 50vw;
-height: 50vw;
-
-}
-header{
-  min-height: 9vw;
-}
-
-
-#myRandom{
-   min-height: 90vh;
-}
-#myRandom h1 {
-  font-size:4vw;
-  padding-top: 30vw;
- 
-}
-
-
-
-.randomImage {
-  padding:0;
-}
-}
-
-
 </style>

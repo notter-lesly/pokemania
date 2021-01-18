@@ -7,7 +7,6 @@
 </template>
 
 <script>
-
 import Footer from "@/components/Footer.vue";
 import Header from "@/components/Header.vue";
 export default {
@@ -19,7 +18,8 @@ export default {
 </script>
 
 <style>
-
-
-
+html,
+body {
+  overflow-x: hidden;
+}
 </style>

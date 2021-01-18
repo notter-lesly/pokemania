@@ -1,26 +1,27 @@
 <template>
-
-<header>
-      <div class="logo">
-         <router-link to="/"> <img class="pokeball" src="../assets/imgs/pokeball.png" /></router-link>
-        <h1>Pokemania</h1>
-      </div>
-      <ul class="menu">
-     <a><router-link to="/">Home</router-link> </a>
-   <a> <router-link to="/random">Random</router-link></a>
-   <a> <router-link to="/categories"> Categories </router-link></a>
-
-      </ul>
-      </header>
-
-      </template>
+  <header>
+    <div class="logo">
+      <router-link to="/">
+        <img class="pokeball" src="../assets/imgs/pokeball.png"
+      /></router-link>
+      <h1>Pokemania</h1>
+    </div>
+    <ul class="menu">
+      <a><router-link to="/">Home</router-link> </a>
+      <a> <router-link to="/random">Random</router-link></a>
+      <a> <router-link to="/categories"> Categories </router-link></a>
+    </ul>
+  </header>
+</template>
       <script>
-
-export default{
-    name: "Header"
+export default {
+  name: "Header",
+};
+</script>
+<style scoped>
+body {
+  overflow-x: hidden;
 }
-          </script>
-<style>
 header {
   width: 100%;
   position: fixed;
@@ -41,7 +42,7 @@ header {
 }
 .logo {
   display: flex;
-  padding:0;
+  padding: 0;
 }
 .logo h1 {
   font-family: "Gloria Hallelujah", cursive;
@@ -62,3 +63,5 @@ header {
   font-family: montserrat;
 }
 </style>
+
+
