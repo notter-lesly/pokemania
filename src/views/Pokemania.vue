@@ -3,37 +3,34 @@
 <template>
   <div id="myApp">
     <h1 class="subtitle">{{ subtitle }}</h1>
-  
-    
-      <button value="name" @click="sortByName()">Sort by Name</button>
-      <button  value="value" @click="sortByNumber()">Sort by Value</button>
-    
-    
-<div class="wrapper">
-    <section class="pokes" v-for="item in items" :key="item.name">
-      <div>
-        <router-link :to="{ name: 'Detail', params: { name: item.name } }">
-          <img :src="item.img" />
-        </router-link>
-      </div>
 
-    </section>
+    <button value="name" @click="sortByName()">Name</button>
+    <button value="value" @click="sortByNumber()">Number</button>
+
+    <div class="wrapper">
+      <section class="pokes" v-for="item in items" :key="item.name">
+        <div>
+          <router-link :to="{ name: 'Detail', params: { name: item.name } }">
+            <img :src="item.img" />
+          </router-link>
+        </div>
+      </section>
     </div>
   </div>
 </template>
 
 <script>
-import _sortBy from 'lodash';
-import pikachu from '../assets/imgs/pika.png'
-import gengar from '../assets/imgs/gengar.png'
-import bulbasaur from '../assets/imgs/bulba.png'
-import squirtle from '../assets/imgs/squirtle.png'
-import charmander from '../assets/imgs/char.png'
-import chicorita from '../assets/imgs/chicorita.png'
-import eevee from '../assets/imgs/eeve.png'
-import jigglypuff from '../assets/imgs/jiggly.png'
-import psyduck from '../assets/imgs/psy.png'
-import pidgeot from '../assets/imgs/pigeot.png'
+import _ from "lodash";
+import pikachu from "../assets/imgs/pika.png";
+import gengar from "../assets/imgs/gengar.png";
+import bulbasaur from "../assets/imgs/bulba.png";
+import squirtle from "../assets/imgs/squirtle.png";
+import charmander from "../assets/imgs/char.png";
+import chicorita from "../assets/imgs/chicorita.png";
+import eevee from "../assets/imgs/eeve.png";
+import jigglypuff from "../assets/imgs/jiggly.png";
+import psyduck from "../assets/imgs/psy.png";
+import pidgeot from "../assets/imgs/pigeot.png";
 
 export default {
   name: "myApp",
@@ -50,21 +47,19 @@ export default {
       h1: "WHO IS THIS POKEMON?",
       button: "TRY",
       home: "pokemania.html",
-       currentOrder: 'value',
-            items: [
-                {name: "pikachu", number: "1", img: pikachu},
-                {name: "gengar", number: "2", img: gengar},
-                {name: "bulbasaur", number: "3", img: bulbasaur},
-                {name: "squirtle", number: "4", img: squirtle},
-                {name: "charmander", number: "5", img: charmander},
-                {name: "chikorita", number: "6", img: chicorita},
-                {name: "eevee", number: "7", img: eevee},
-                {name: "jigglypuff", number: "8", img: jigglypuff},
-                {name: "psyduck", number: "9", img: psyduck},
-                {name: "pidgeot", number: "10", img: pidgeot},
-              
-            ]
-        
+      currentOrder: "value",
+      items: [
+        { name: "pikachu", number: "1", img: pikachu },
+        { name: "gengar", number: "2", img: gengar },
+        { name: "bulbasaur", number: "3", img: bulbasaur },
+        { name: "squirtle", number: "4", img: squirtle },
+        { name: "charmander", number: "5", img: charmander },
+        { name: "chikorita", number: "6", img: chicorita },
+        { name: "eevee", number: "7", img: eevee },
+        { name: "jigglypuff", number: "8", img: jigglypuff },
+        { name: "psyduck", number: "9", img: psyduck },
+        { name: "pidgeot", number: "10", img: pidgeot },
+      ],
     };
   },
 
@@ -90,14 +85,20 @@ export default {
           this.image = poke1.sprites.front_default;
         });
     },
-    sortByName() { 
-      var sortedItems = _sortBy(this.items, "name");
-      console.log(sortedItems)
+    sortByName() {
+      this.items = _.sortBy(this.items, [
+        function (item) {
+          return item.name;
         },
+      ]);
+    },
     sortByNumber() {
-            this.items = _sortBy(this.items, ['number'],["asc"]);
-            console.log(this.items)
-        }, 
+      this.items = _.sortBy(this.items, [
+        function (item) {
+          return item.number;
+        },
+      ]);
+    },
   },
 };
 </script>
@@ -229,11 +230,10 @@ table {
 }
 
 header {
- 
   position: fixed;
   margin: auto;
   background-color: white;
-  
+
   display: flex;
   justify-content: space-between;
 }
@@ -251,9 +251,16 @@ header {
 }
 
 button {
-  width: 50px;
-  background-color: rgb(250, 133, 0);
+  text-align: center;
+  width: 8vw;
+  background-color: rgb(167, 110, 4);
   color: black;
+  margin: 0.5vw;
+  border: solid black 0.1vw;
+  border-radius: 0.2vw;
+  font-family: montserrat;
+  font-weight: bold;
+  font-size: 1vw;
 }
 
 img {
@@ -271,15 +278,13 @@ img {
   width: 100vw;
   flex-direction: row;
 }
-.select{
-  background-color:orange;
-  color:black;
-
+.select {
+  background-color: orange;
+  color: black;
 }
 
 /*extra small*/
 @media only screen and (max-width: 600px) {
-  
   .subtitle {
     padding-top: 10vw;
   }
@@ -298,7 +303,7 @@ img {
     margin-bottom: 1vw;
   }
   .pokes img {
-    padding-top:3vw;
+    padding-top: 3vw;
     width: 20vw;
     height: 20vw;
     cursor: pointer;
@@ -315,21 +320,18 @@ img {
     font-family: montserrat;
   }
 
-  #myRandom{
-   min-height: 90vh;
-}
-
+  #myRandom {
+    min-height: 90vh;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-
-   .subtitle {
+  .subtitle {
     padding-top: 10vw;
   }
 
-  
- .wrapper {
+  .wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -343,7 +345,7 @@ img {
     margin-bottom: 1vw;
   }
   .pokes img {
-    padding-top:3vw;
+    padding-top: 3vw;
     width: 12vw;
     height: 12vw;
     cursor: pointer;
@@ -354,8 +356,7 @@ img {
 
   footer {
     min-height: 5vh;
-   
-}
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) 
