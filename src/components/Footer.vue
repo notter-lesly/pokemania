@@ -28,7 +28,7 @@
   </footer>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: "Footer",
 };
@@ -51,6 +51,7 @@ footer a,
 li {
   text-decoration: none;
   color: rgb(156, 151, 151);
+  list-style-type: none;
 }
 footer h3 {
   font-size: 1.5vw;

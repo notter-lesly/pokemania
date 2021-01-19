@@ -13,7 +13,7 @@
     </ul>
 
     <div class="line"></div>
-    <h2>SHINY VERSION</h2>
+    <h3>SHINY VERSION</h3>
 
     <img class="randomImage" :src="image2" />
   </div>
@@ -87,6 +87,13 @@ header {
 #myRandom h2 {
   font-size: 3vw;
   padding-top: 2vw;
+  text-align: center;
+  color: white;
+}
+
+#myRandom h3 {
+  font-size: 3vw;
+  padding-top: 5vw;
   text-align: center;
   color: white;
 }

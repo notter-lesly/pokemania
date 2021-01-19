@@ -1,9 +1,7 @@
 <template>
   <header>
     <div class="logo">
-      <router-link to="/">
-        <img class="pokeball" src="../assets/imgs/pokeball.png"
-      /></router-link>
+      <router-link to="/"><img class="pokeball" src="../assets/imgs/pokeball.png"/></router-link>
       <h1>Pokemania</h1>
     </div>
     <ul class="menu">
@@ -13,7 +11,7 @@
     </ul>
   </header>
 </template>
-      <script>
+      <script lang="ts">
 export default {
   name: "Header",
 };
@@ -39,6 +37,7 @@ header {
   padding: 0;
   margin: 0;
   cursor: pointer;
+  padding:0;
 }
 .logo {
   display: flex;
@@ -61,6 +60,15 @@ header {
   font-size: 1.5vw;
   padding: 0.5vw;
   font-family: montserrat;
+}
+
+@media only screen and (max-width: 600px) {
+  header a {
+    font-size: 0.7vw;
+  }
+  header{
+  height:5vw ;
+}
 }
 </style>
 
