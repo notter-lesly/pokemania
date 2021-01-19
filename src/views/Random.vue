@@ -76,6 +76,7 @@ header {
 
 #myRandom {
   background-color: rgb(46, 46, 95);
+
 }
 #myRandom h1 {
   font-size: 4vw;
@@ -89,6 +90,7 @@ header {
   padding-top: 2vw;
   text-align: center;
   color: white;
+  margin:2vw;
 }
 
 #myRandom h3 {
@@ -140,6 +142,11 @@ header {
   width: 50%;
   display: block;
   margin: auto;
+  margin-bottom:4vw;
+  margin-top:4vw
+}
+#myRandom button{
+  margin:2vw;
 }
 
 @media only screen and (min-width: 600px) {

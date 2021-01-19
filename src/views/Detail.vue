@@ -173,6 +173,8 @@ export default {
   width: 50%;
   display: block;
   margin: auto;
+  margin-top: 4vw;
+  margin-bottom: 4vw;
 }
 
 @media only screen and (min-width: 600px) {
@@ -189,33 +191,46 @@ export default {
   .detail {
     min-height: 90vw;
   }
-
+  .others {
+    padding: 5vw;
+    padding-bottom: 8vw;
+  }
   .others img {
     width: 10vw;
     height: 10vw;
-    padding-top: 2vw;
-    padding-bottom: 0;
+    padding-top: 3vw;
+    padding-bottom: 2vw;
   }
 }
 @media only screen and (max-width: 600px) {
   .detail img {
-    width: 20vw;
-    height: 20vw;
-  }
-  #myApp {
-    min-height: 90vw;
-  }
-  .detail {
-    min-height: 90vw;
+    width: 22vw;
+    height: 22vw;
   }
 
+  #myDetail h1 {
+    padding-top: 20vw;
+  }
+  #myDetail {
+    min-height: 100vw;
+  }
+  .others {
+    padding: 7vw;
+  }
   .others img {
-    width: 15vw;
-    height: 15vw;
-    padding: 3vw;
+    width: 17vw;
+    height: 17vw;
+    padding: 5vw;
   }
   .others h2 {
     text-align: center;
+  }
+  .line {
+    margin-top: 8vw;
+    margin-bottom: 6vw;
+  }
+  footer {
+    padding-bottom: 3vw;
   }
 }
 </style>
