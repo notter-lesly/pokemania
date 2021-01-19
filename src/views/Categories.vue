@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import pikachu from "../assets/imgs/pika.png";
 import gengar from "../assets/imgs/gengar.png";
 import bulbasaur from "../assets/imgs/bulba.png";
@@ -107,6 +107,7 @@ export default {
   display: block;
   border: none;
   padding: 2vw;
+  cursor: auto;
 }
 
 .categories h2 {
