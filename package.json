@@ -9,6 +9,7 @@
     "sitemap": "vue-cli-service sitemap"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "esm": "^3.2.25",
     "vue": "^3.0.0",
