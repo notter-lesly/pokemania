@@ -1,65 +1,39 @@
 <template>
-  <div id="myRandom">
+  <div id="Random">
     <h1>{{ h1 }}</h1>
-
     <img class="randomImage" :src="image" />
-
     <ul>
       <button @click="randomPoke()">{{ button }}</button>
-      <h2>IT IS: {{ random.name }}</h2>
+      <li class="h2">IT IS: {{ random.name }}</li>
       <li>Id:{{ random.id }}</li>
       <li>Height:{{ random.height }}</li>
       <li>Weight: {{ random.weight }}</li>
     </ul>
-
-    <div class="line"></div>
-    <h3>SHINY VERSION</h3>
-
-    <img class="randomImage" :src="image2" />
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  name: "app",
-
+  name: "Random",
   data() {
     return {
-      poke1: "",
-      subtitle: "CHOOSE YOUR POKEMON",
-      link: "detailedPage.html",
-      name: "",
-      companyName: "PokeMania",
       random: "",
       image: "",
-      image2: "",
       h1: "WHO IS THIS POKEMON?",
       button: "TRY",
-      home: "pokemania.html",
     };
   },
-
   methods: {
     randomPoke() {
-      let number = Math.ceil(Math.random() * 151);
-
-      fetch("https://pokeapi.co/api/v2/pokemon/" + number)
-        .then((response) => response.json())
-        .then((random) => {
-          this.random = random;
-          this.image = random.sprites.front_default;
-          this.image2 = random.sprites.front_shiny;
+      let number = Math.ceil(Math.random() * 714);
+      axios
+        .get(`https://pokeapi.co/api/v2/pokemon/${number}`)
+        .then((response) => {
+          this.random = response.data;
+          this.image =
+            response.data.sprites.other["official-artwork"].front_default;
           this.random.name = this.random.name.toUpperCase();
-        });
-    },
-
-    searchPoke(name) {
-      fetch("https://pokeapi.co/api/v2/pokemon/" + name)
-        .then((response) => response.json())
-        .then((poke1) => {
-          this.poke1 = poke1;
-          this.image = poke1.sprites.front_default;
-          this.poke1.name = this.poke1.name.toUpperCase();
         });
     },
   },
@@ -69,38 +43,41 @@ export default {
 };
 </script>
 
-<style>
-header {
-  width: 100%;
-}
-
-#myRandom {
+<style scoped>
+#Random {
+  display: flex;
+  flex-direction: column;
   background-color: rgb(46, 46, 95);
-
+  min-height: 100%;
 }
-#myRandom h1 {
+#Random h1 {
   font-size: 4vw;
-  padding-top: 5vw;
+  padding-top: 11vw;
   text-align: center;
   color: rgba(255, 255, 255, 0.801);
+  font-size: 2.5vw;
 }
-
-#myRandom h2 {
-  font-size: 3vw;
+.h2 {
+  font-size: 2vw;
   padding-top: 2vw;
   text-align: center;
   color: white;
-  margin:2vw;
+  margin: 2vw;
 }
-
-#myRandom h3 {
-  font-size: 3vw;
-  padding-top: 5vw;
+#Random h3 {
+  font-size: 2vw;
+  padding-top: 1vw;
+  padding-bottom: 2vw;
   text-align: center;
   color: white;
 }
-#myRandom button {
-  background-color: rgb(250, 133, 0);
+#Random p {
+  color: rgb(179, 179, 179);
+  font-size: 2vw;
+  text-align: center;
+}
+#Random button {
+  background-color: rgb(167, 110, 4);
   color: black;
   margin: auto;
   text-align: center;
@@ -111,88 +88,42 @@ header {
   border: 0.1vw;
   cursor: pointer;
   width: 8vw;
+  text-align: center;
 }
-
-#myRandom ul {
+#Random ul {
   text-align: center;
   line-height: 3vw;
 }
-
 .randomImage {
-  width: 15vw;
-  height: 15vw;
+  width: 12vw;
+  height: 12vw;
   border: none;
   cursor: auto;
   margin: auto;
   display: block;
   padding-top: 4vw;
   margin-top: 3vw;
+  padding-bottom: 3vw;
 }
-
-#myRandom li {
+.shinyImage {
+  width: 12vw;
+  height: 12vw;
+  border: none;
+  cursor: auto;
+  margin: auto;
+  display: block;
+  padding-top: 4vw;
+  margin-top: 3vw;
+  padding-bottom: 8vw;
+}
+#Random li {
   font-size: 2vw;
-  list-style: none;
   line-height: 5vw;
   text-align: center;
   color: rgb(156, 156, 156);
 }
-
-.line {
-  border: 1px solid white;
-  width: 50%;
-  display: block;
-  margin: auto;
-  margin-bottom:4vw;
-  margin-top:4vw
-}
-#myRandom button{
-  margin:2vw;
-}
-
-@media only screen and (min-width: 600px) {
-  footer {
-    min-height: 10vw;
-  }
-  #myRandom {
-    min-height: 100vh;
-  }
-  #myRandom h1 {
-    font-size: 4vw;
-    padding-top: 10vw;
-  }
-  .randomImage {
-    width: 20vw;
-    height: 20vw;
-  }
-
-  footer {
-    min-height: 10vw;
-  }
-  #myRandom {
-    min-height: 50vh;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  header a {
-    font-size: 7vw;
-  }
-
-  .randomImage {
-    width: 30vw;
-    height: 30vw;
-  }
-
-  #myRandom {
-    min-height: 100vh;
-  }
-  #myRandom h1 {
-    font-size: 4vw;
-    padding-top: 30vw;
-  }
-
-  .randomImage {
-    padding: 10vw;
-  }
+#Random button {
+  margin: 2vw;
 }
 </style>
+
