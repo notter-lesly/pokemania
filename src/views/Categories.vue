@@ -1,7 +1,6 @@
 <template>
-  <div id="myCategories">
+  <div id="Categories">
     <h1>Pokemon's categories</h1>
-
     <ul class="categories" v-for="item in items" :key="item.name">
       <li>
         <h2>{{ item.name }}</h2>
@@ -21,8 +20,7 @@ import bulbasaur from "../assets/imgs/bulba.png";
 import squirtle from "../assets/imgs/squirtle.png";
 import charmander from "../assets/imgs/char.png";
 export default {
-  name: "myCategories",
-
+  name: "Categories",
   data() {
     return {
       items: [
@@ -36,7 +34,6 @@ export default {
           contest:
             "When used in Contests, Electric-type moves tend to be Cool moves, though they can also be other conditions.",
         },
-
         {
           name: "Ghost Pokemons",
           img: gengar,
@@ -57,7 +54,6 @@ export default {
         },
         {
           name: "Water Pokemons",
-
           img: squirtle,
           defense:
             "Water-type Pokémon fares well defensively, being weak to only Electric and Grass-type moves.",
@@ -81,12 +77,11 @@ export default {
 };
 </script>
 
-<style>
-#myCategories {
+<style scoped>
+#Categories {
   background-color: rgb(46, 46, 95);
 }
-
-#myCategories h1 {
+#Categories h1 {
   padding-top: 10vw;
   text-align: center;
   font-size: 4vw;
@@ -98,7 +93,6 @@ export default {
   flex-direction: column;
   justify-content: center;
 }
-
 .categories li {
   padding: 4vw;
 }
@@ -108,8 +102,9 @@ export default {
   border: none;
   padding: 2vw;
   cursor: auto;
+  width: 12vw;
+  height: 12vw;
 }
-
 .categories h2 {
   color: rgb(167, 110, 4);
   font-family: Segoe;

@@ -3,7 +3,7 @@
     <h2>Site map</h2>
     <div class="footerOrg">
       <ul>
-        <h3>LINKS</h3>
+        <li class="h3">LINKS</li>
         <li>
           <a> <router-link to="/">Home</router-link></a>
         </li>
@@ -15,7 +15,7 @@
         </li>
       </ul>
       <ul>
-        <h3>CONTACT</h3>
+        <li class="h3">CONTACT</li>
         <li><a href="https://github.com/notter-lesly">Github</a></li>
         <li><a href="https://www.linkedin.com/in/leslynotter">Linkedin</a></li>
         <li>
@@ -38,30 +38,28 @@ export default {
 footer {
   background-color: rgb(26, 26, 26);
   color: white;
-  font-size: 1.5vw;
+  font-size: 1vw;
   font-family: montserrat;
   line-height: 2.5vw;
   width: 100%;
+  padding-bottom: 1vw;
+  overflow: hidden;
 }
 footer h2 {
   text-decoration: underline;
 }
-
 footer a,
 li {
   text-decoration: none;
   color: rgb(156, 151, 151);
   list-style-type: none;
 }
-footer h3 {
-  font-size: 1.5vw;
+.h3 {
+  color: white;
 }
-
 .footerOrg {
   display: flex;
   justify-content: space-around;
-  margin-left: -10vw;
-  margin-right: -10vw;
   margin-top: 2vw;
 }
 </style>

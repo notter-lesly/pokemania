@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Header />
-    <router-view />
+    <main>
+      <router-view :key="$route.fullPath"/>
+      </main>
     <Footer />
   </div>
 </template>
@@ -18,8 +20,37 @@ export default {
 </script>
 
 <style>
-html,
-body {
-  overflow-x: hidden;
+body,
+ul,
+li,
+h1,
+h2,
+h3,
+p,
+footer
+ {
+  padding:0;
+  margin:0;
+  overflow-x:hidden;
+}
+body{
+  background-color: rgb(46, 46, 95);
+}
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+#app{
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main{
+  flex:1;
+}
+.router-link-active{
+  background-color:rgb(167, 110, 4);
 }
 </style>
