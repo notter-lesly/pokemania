@@ -107,8 +107,8 @@ export default {
 }
 .categories h2 {
   color: rgb(167, 110, 4);
-  font-family: Segoe;
-  font-size: 4vw;
+  font-family: Montserrat;
+  font-size: 3.5vw;
   font-weight: bold;
   text-align: center;
 }
