@@ -12,16 +12,17 @@
 import Footer from "@/components/Footer.vue";
 import Header from "@/components/Header.vue";
 export default {
+
   components: {
     Footer,
     Header,
   },
-
-  methods:{
- scrollBehavior () {
-  return { x: 0, y: 0 }
+methods:{
+    scrollBehavior() {
+     return { x: 0, y: 0 }
+   }
 }
-  }
+
 };
 </script>
 
@@ -57,7 +58,11 @@ a{
 main{
   flex:1;
 }
-.router-link-active{
-  background-color:rgb(167, 110, 4);
+a.router-link-active {
+  color:rgb(167, 110, 4);
+  font-weight: bold;
+  
+ 
+
 }
 </style>

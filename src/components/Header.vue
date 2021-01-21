@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="logo">
-      <img class="pokeball" src="../assets/imgs/pokeball.png" />
+      <router-link to="/" @click="scrollBehavior"><img class="pokeball" src="../assets/imgs/pokeball.png" /></router-link>
       <h1>Pokemania</h1>
     </div>
     <ul class="menu">
