@@ -12,7 +12,7 @@
     <h2>{{ pokemonType }} TYPE POKEMONS</h2>
     <div class="others">
       <section v-for="item in items" :key="item.name">
-        <router-link :to="{ name: 'Detail', params: { name: item.name } }">
+        <router-link :to="{ name: 'Detail', params: { name: item.name } }" @click="scrollBehavior">
           <img :src="item.image" />
           <ul>
             <li>{{ item.name }}</li>
@@ -76,7 +76,7 @@ export default {
         });
     },
   },
-  beforeMount() {
+  created() {
     this.searchPoke(this.$route.params.name);
   },
 };

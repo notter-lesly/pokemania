@@ -16,6 +16,12 @@ export default {
     Footer,
     Header,
   },
+
+  methods:{
+ scrollBehavior () {
+  return { x: 0, y: 0 }
+}
+  }
 };
 </script>
 
@@ -35,6 +41,7 @@ footer
 }
 body{
   background-color: rgb(46, 46, 95);
+  scroll-behavior: smooth;
 }
 ul{
   list-style: none;

@@ -5,9 +5,9 @@
       <h1>Pokemania</h1>
     </div>
     <ul class="menu">
-      <li><router-link to="/">Home</router-link></li>
-      <li><router-link to="/random">Random</router-link></li>
-      <li><router-link to="/categories"> Categories </router-link></li>
+      <li><router-link to="/" @click="scrollBehavior">Home</router-link></li>
+      <li><router-link to="/random" @click="scrollBehavior">Random</router-link></li>
+      <li><router-link to="/categories" @click="scrollBehavior"> Categories </router-link></li>
     </ul>
   </header>
 </template>
@@ -32,7 +32,7 @@ header {
 }
 .pokeball {
   width: 3.5vw;
-  height: 3.5vw;
+ height: 3.5vw;
   border: none;
   padding: 1vw;
 }
@@ -66,9 +66,7 @@ a {
   a {
     font-size: 2vw;
   }
-  header {
-    height: 9vw;
-  }
+  
 }
 </style>
 

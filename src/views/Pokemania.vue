@@ -7,7 +7,7 @@
     <div class="pokes">
       <section v-for="item in items" :key="item.name">
         <div>
-          <router-link :to="{ name: 'Detail', params: { name: item.name } }">
+          <router-link :to="{ name: 'Detail', params: { name: item.name }}" @click="scrollBehavior" >
             <img :src="item.image" />
             <h2>{{ item.name }}</h2>
             <h2>{{ item.number }}</h2>
@@ -44,10 +44,13 @@ export default {
           });
       }
     },
+ 
+    
   },
   beforeMount() {
     this.initPoke();
   },
+  
 };
 </script>
 <style scoped>
