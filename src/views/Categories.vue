@@ -23,7 +23,6 @@ export default {
   el: "Categories",
   data() {
     return {
-    
       items: [
         {
           name: "Eletric Pokemons",
@@ -75,11 +74,9 @@ export default {
       ],
     };
   },
-  methods:{
-     scrollBehavior() {
-     return { x: 0, y: 0 }
-   }
-  }
+  mounted() {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
 
