@@ -28,7 +28,7 @@
   </footer>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   el: "Footer",
    methods:{

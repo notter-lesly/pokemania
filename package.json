@@ -19,19 +19,14 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.168",
-    "@typescript-eslint/eslint-plugin": "^2.33.0",
-    "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "^4.5.10",
-    "@vue/cli-plugin-typescript": "^4.5.10",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
-    "@vue/eslint-config-typescript": "^5.0.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0-0",
-    "typescript": "~3.9.3",
     "vue-cli-plugin-sitemap": "~2.3.0"
   },
   "eslintConfig": {
@@ -41,12 +36,8 @@
     },
     "extends": [
       "plugin:vue/vue3-essential",
-      "eslint:recommended",
-      "@vue/typescript"
+      "eslint:recommended"
     ],
-    "parserOptions": {
-      "parser": "@typescript-eslint/parser"
-    },
     "rules": {}
   },
   "browserslist": [

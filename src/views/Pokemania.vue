@@ -18,24 +18,17 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import axios from "axios";
+import _ from "lodash";
 
-interface Items{
-
-    name: string,
-    number: number,
-    image: string
-}
 export default {
   el:"Home",
  
   data() {  
      return {
   
-      items:[] as any,
-
-        
+      items: [],
 
       subtitle: "CHOOSE YOUR POKEMON",
    
@@ -45,19 +38,31 @@ export default {
     initPoke() {
         for (let i = 0; i < 10; i++) {
           let number = Math.ceil(Math.random() * 714);
-       
           axios
             .get(`https://pokeapi.co/api/v2/pokemon/${number}`)
             .then((response) => {
               this.items.push({
                 name: response.data.name,
                 number: response.data.id,
-                image:
-                  response.data.sprites.other["official-artwork"].front_default,
-              });
+                image: response.data.sprites.other["official-artwork"].front_default,
+              }) ;
             })
         }
       },
+      sortByName() {
+      this.items = _.sortBy(this.items, [
+        function (item) {
+          return item.name;
+        },
+      ]);
+    },
+    sortByNumber() {
+      this.items = _.sortBy(this.items, [
+        function (item) {
+          return item.number;
+        },
+      ]);
+    }
         },
 
   

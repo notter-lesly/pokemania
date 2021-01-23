@@ -24,19 +24,15 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   el: "Detail",
   data() {
     return {
-      poke1: {
-        name:"",
-        types: [] as any 
-      },
-      index:String,
-      image: "",
+      poke1: "",
+     image: "",
       image2: "",
-      items:[] as any,
+      items:[],
       pokemonType: "",
       name: "",
       h1: "WHO IS THIS POKEMON?",
@@ -44,7 +40,7 @@ export default {
     };
   },
   methods: {
-    searchPoke(name:any) {
+    searchPoke(name) {
       fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
         .then((response) => response.json())
         .then((poke1) => {
@@ -54,13 +50,13 @@ export default {
           this.detailPoke(this.poke1.types[0].type);
         });
     },
-    detailPoke(type: { name: string; }) {
+    detailPoke(type) {
       for (let i = 0; i < 3; i++) {
         fetch(`https://pokeapi.co/api/v2/type/${type.name}`)
           .then((response) => response.json())
           .then((data) => {
             let pokemons = data.pokemon.filter(
-              (index:any) =>
+              (index) =>
                 index.pokemon.url && !index.pokemon.name.includes("minior")
             );
             let randomPosition = Math.ceil(Math.random() * pokemons.length);
@@ -68,7 +64,7 @@ export default {
           });
       }
     },
-    requestDetailPokes(url:string) {
+    requestDetailPokes(url) {
       fetch(url)
         .then((response) => response.json())
         .then((pokemon) => {

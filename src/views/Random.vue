@@ -12,15 +12,13 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import axios from "axios";
 export default {
   el: "Random",
   data() {
     return {
-      random:{
-        name:""
-      },
+      random:"",
       image: "",
       h1: "WHO IS THIS POKEMON?",
       button: "TRY",

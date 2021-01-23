@@ -12,7 +12,7 @@
   </header>
 </template>
 
-<script lang="ts">
+<script>
 export default {
  el: "Header",
   methods:{

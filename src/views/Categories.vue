@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import pikachu from "../assets/imgs/pika.png";
 import gengar from "../assets/imgs/gengar.png";
 import bulbasaur from "../assets/imgs/bulba.png";
