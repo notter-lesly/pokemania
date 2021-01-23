@@ -37,6 +37,9 @@ export default {
           this.random.name= this.random.name.toUpperCase();
         });
     },
+     scrollBehavior() {
+     return { x: 0, y: 0 }
+   }
   },
   beforeMount() {
     this.randomPoke();

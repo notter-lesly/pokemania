@@ -74,7 +74,11 @@ export default {
             image: pokemon.sprites.other["official-artwork"].front_default,
           });
         });
+        
     },
+     scrollBehavior() {
+     return { x: 0, y: 0 }
+   }
   },
   created() {
     this.searchPoke(this.$route.params.name);

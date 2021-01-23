@@ -75,6 +75,11 @@ export default {
       ],
     };
   },
+  methods:{
+     scrollBehavior() {
+     return { x: 0, y: 0 }
+   }
+  }
 };
 </script>
 

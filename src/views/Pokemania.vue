@@ -62,7 +62,10 @@ export default {
           return item.number;
         },
       ]);
-    }
+    },
+     scrollBehavior() {
+     return { x: 0, y: 0 }
+   }
         },
 
   
