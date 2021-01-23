@@ -18,40 +18,55 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import axios from "axios";
+
+interface Items{
+
+    name: string,
+    number: number,
+    image: string
+}
 export default {
-  name: "Home",
-  data() {
-    return {
-      subtitle: "CHOOSE YOUR POKEMON",
-      items: [],
-    };
-  },
-   methods: {
-    initPoke() {
-      for (let i = 0; i < 10; i++) {
-        let number = Math.ceil(Math.random() * 714);
-        axios
-          .get(`https://pokeapi.co/api/v2/pokemon/${number}`)
-          .then((response) => {
-            this.items.push({
-              name: response.data.name,
-              number: response.data.id,
-              image:
-                response.data.sprites.other["official-artwork"].front_default,
-            });
-          });
-      }
-    },
+  el:"Home",
  
-    
-  },
+  data() {  
+     return {
+  
+      items:[] as any,
+
+        
+
+      subtitle: "CHOOSE YOUR POKEMON",
+   
+    }
+      },
+        methods:{
+    initPoke() {
+        for (let i = 0; i < 10; i++) {
+          let number = Math.ceil(Math.random() * 714);
+       
+          axios
+            .get(`https://pokeapi.co/api/v2/pokemon/${number}`)
+            .then((response) => {
+              this.items.push({
+                name: response.data.name,
+                number: response.data.id,
+                image:
+                  response.data.sprites.other["official-artwork"].front_default,
+              });
+            })
+        }
+      },
+        },
+
+  
   beforeMount() {
-    this.initPoke();
+    this.initPoke()
   },
   
-};
+}
+
 </script>
 <style scoped>
 #Home {

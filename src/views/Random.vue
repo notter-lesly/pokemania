@@ -12,13 +12,15 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import axios from "axios";
 export default {
-  name: "Random",
+  el: "Random",
   data() {
     return {
-      random: "",
+      random:{
+        name:""
+      },
       image: "",
       h1: "WHO IS THIS POKEMON?",
       button: "TRY",
@@ -26,6 +28,7 @@ export default {
   },
   methods: {
     randomPoke() {
+      
       let number = Math.ceil(Math.random() * 714);
       axios
         .get(`https://pokeapi.co/api/v2/pokemon/${number}`)
@@ -33,7 +36,7 @@ export default {
           this.random = response.data;
           this.image =
             response.data.sprites.other["official-artwork"].front_default;
-          this.random.name = this.random.name.toUpperCase();
+          this.random.name= this.random.name.toUpperCase();
         });
     },
   },
