@@ -5,13 +5,13 @@
       <ul>
         <li class="h3">LINKS</li>
         <li>
-          <a> <router-link to="/" @click="scrollBehavior">Home</router-link></a>
+          <a> <router-link to="/">Home</router-link></a>
         </li>
         <li>
-          <a> <router-link to="/random" @click="scrollBehavior">Random</router-link></a>
+          <a> <router-link to="/random">Random</router-link></a>
         </li>
         <li>
-          <a> <router-link to="/categories" @click="scrollBehavior"> Categories </router-link></a>
+          <a> <router-link to="/categories"> Categories </router-link></a>
         </li>
       </ul>
       <ul>
@@ -31,12 +31,7 @@
 <script>
 export default {
   el: "Footer",
-   methods:{
-    scrollBehavior() {
-     return { x: 0, y: 0 }
-   }
-}
-}
+};
 </script>
 
 <style scoped>
@@ -49,8 +44,7 @@ footer {
   width: 100%;
   padding-bottom: 1vw;
   overflow: hidden;
-  
-  }
+}
 footer h2 {
   text-decoration: underline;
 }

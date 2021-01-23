@@ -1,25 +1,22 @@
 <template>
   <header>
     <div class="logo">
-      <router-link to="/" @click="scrollBehavior"><img class="pokeball" src="../assets/imgs/pokeball.png" /></router-link>
+      <router-link to="/"
+        ><img class="pokeball" src="../assets/imgs/pokeball.png"
+      /></router-link>
       <h1>Pokemania</h1>
     </div>
     <ul class="menu">
-      <li><router-link to="/" @click="scrollBehavior">Home</router-link></li>
-      <li><router-link to="/random" @click="scrollBehavior">Random</router-link></li>
-      <li><router-link to="/categories" @click="scrollBehavior"> Categories </router-link></li>
+      <li><router-link to="/">Home</router-link></li>
+      <li><router-link to="/random">Random</router-link></li>
+      <li><router-link to="/categories"> Categories </router-link></li>
     </ul>
   </header>
 </template>
 
 <script>
 export default {
- el: "Header",
-  methods:{
-    scrollBehavior() {
-     return { x: 0, y: 0 }
-   }
-  }
+  el: "Header",
 };
 </script>
 <style scoped>
@@ -37,7 +34,7 @@ header {
 }
 .pokeball {
   width: 3.5vw;
- height: 3.5vw;
+  height: 3.5vw;
   border: none;
   padding: 1vw;
 }
@@ -71,7 +68,6 @@ a {
   a {
     font-size: 2vw;
   }
-  
 }
 </style>
 
