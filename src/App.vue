@@ -12,16 +12,11 @@
 import Footer from "@/components/Footer.vue";
 import Header from "@/components/Header.vue";
 export default {
-
+el:"app",
   components: {
     Footer,
     Header,
   },
-methods:{
-    scrollBehavior() {
-     return { x: 0, y: 0 }
-   }
-}
 
 };
 </script>

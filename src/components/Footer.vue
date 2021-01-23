@@ -30,8 +30,13 @@
 
 <script lang="ts">
 export default {
-  name: "Footer",
-};
+  el: "Footer",
+   methods:{
+    scrollBehavior() {
+     return { x: 0, y: 0 }
+   }
+}
+}
 </script>
 
 <style scoped>

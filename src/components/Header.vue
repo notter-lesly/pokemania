@@ -14,7 +14,12 @@
 
 <script lang="ts">
 export default {
-  name: "Header",
+ el: "Header",
+  methods:{
+    scrollBehavior() {
+     return { x: 0, y: 0 }
+   }
+  }
 };
 </script>
 <style scoped>

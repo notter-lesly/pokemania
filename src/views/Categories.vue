@@ -20,9 +20,10 @@ import bulbasaur from "../assets/imgs/bulba.png";
 import squirtle from "../assets/imgs/squirtle.png";
 import charmander from "../assets/imgs/char.png";
 export default {
-  name: "Categories",
+  el: "Categories",
   data() {
     return {
+    
       items: [
         {
           name: "Eletric Pokemons",
