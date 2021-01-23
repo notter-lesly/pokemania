@@ -1,16 +1,15 @@
-
 <template>
   <div id="Home">
     <h1 class="subtitle">{{ subtitle }}</h1>
     <button value="name" @click="sortByName()">Name</button>
     <button value="value" @click="sortByNumber()">Number</button>
     <div class="pokes">
-      <section v-for="item in items" :key="item.name">
+      <section v-for="pokemon in pokemons" :key="pokemon.name">
         <div>
-          <router-link :to="{ name: 'Detail', params: { name: item.name }}" @click="scrollBehavior" >
-            <img :src="item.image" />
-            <h2>{{ item.name }}</h2>
-            <h2>{{ item.number }}</h2>
+          <router-link :to="{ name: 'Detail', params: { name: pokemon.name } }">
+            <img :src="pokemon.image" />
+            <h2>{{ pokemon.name }}</h2>
+            <h2>{{ pokemon.number }}</h2>
           </router-link>
         </div>
       </section>
@@ -19,63 +18,17 @@
 </template>
 
 <script>
-import axios from "axios";
-import _ from "lodash";
-
+import getPokemon from "../services/getPokemon";
 export default {
-  el:"Home",
- 
-  data() {  
-     return {
-  
-      items: [],
-
-      subtitle: "CHOOSE YOUR POKEMON",
-   
-    }
-      },
-        methods:{
-    initPoke() {
-        for (let i = 0; i < 10; i++) {
-          let number = Math.ceil(Math.random() * 714);
-          axios
-            .get(`https://pokeapi.co/api/v2/pokemon/${number}`)
-            .then((response) => {
-              this.items.push({
-                name: response.data.name,
-                number: response.data.id,
-                image: response.data.sprites.other["official-artwork"].front_default,
-              }) ;
-            })
-        }
-      },
-      sortByName() {
-      this.items = _.sortBy(this.items, [
-        function (item) {
-          return item.name;
-        },
-      ]);
-    },
-    sortByNumber() {
-      this.items = _.sortBy(this.items, [
-        function (item) {
-          return item.number;
-        },
-      ]);
-    },
-     scrollBehavior() {
-     return { x: 0, y: 0 }
-   }
-        },
-
-  
-  beforeMount() {
-    this.initPoke()
+  el: "Home",
+  mixins: [getPokemon],
+  /* renders the getPokemon function before assembling the page*/
+  created() {
+    this.getPokemon();
   },
-  
-}
-
+};
 </script>
+
 <style scoped>
 #Home {
   background-color: rgb(46, 46, 95);
@@ -101,6 +54,9 @@ button {
   font-size: 1vw;
   text-align: center;
   margin-bottom: 2vw;
+}
+button :focus {
+  background-color: pink;
 }
 .pokes {
   display: flex;

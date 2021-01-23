@@ -3,7 +3,7 @@
     <h1>{{ h1 }}</h1>
     <img class="randomImage" :src="image" />
     <ul>
-      <button @click="randomPoke()">{{ button }}</button>
+      <button @click="getRandomPokemon()">{{ button }}</button>
       <li class="h2">IT IS: {{ random.name }}</li>
       <li>Id:{{ random.id }}</li>
       <li>Height:{{ random.height }}</li>
@@ -13,36 +13,16 @@
 </template>
 
 <script>
-import axios from "axios";
+import getRandomPokemon from "../services/getRandomPokemon"
 export default {
   el: "Random",
-  data() {
-    return {
-      random:"",
-      image: "",
-      h1: "WHO IS THIS POKEMON?",
-      button: "TRY",
-    };
+  mixins:[getRandomPokemon],
+  mounted() {
+    window.scrollTo(0, 0);
   },
-  methods: {
-    randomPoke() {
-      
-      let number = Math.ceil(Math.random() * 714);
-      axios
-        .get(`https://pokeapi.co/api/v2/pokemon/${number}`)
-        .then((response) => {
-          this.random = response.data;
-          this.image =
-            response.data.sprites.other["official-artwork"].front_default;
-          this.random.name= this.random.name.toUpperCase();
-        });
-    },
-     scrollBehavior() {
-     return { x: 0, y: 0 }
-   }
-  },
+  /* renders the randomPokemon function before assembling the page*/
   beforeMount() {
-    this.randomPoke();
+    this.getRandomPokemon();
   },
 };
 </script>

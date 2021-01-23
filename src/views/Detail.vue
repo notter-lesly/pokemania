@@ -1,18 +1,18 @@
 <template>
   <div id="Detail">
-    <h1>{{ poke1.name }}</h1>
+    <h1>{{ chosenPokemon.name }}</h1>
     <img :src="image" />
     <ul>
-      <li>Name: {{ poke1.name }}</li>
-      <li>Id: {{ poke1.id }}</li>
-      <li>Height:{{ poke1.height }}</li>
-      <li>Weight:{{ poke1.weight }}</li>
+      <li>Name: {{ chosenPokemon.name }}</li>
+      <li>Id: {{ chosenPokemon.id }}</li>
+      <li>Height:{{ chosenPokemon.height }}</li>
+      <li>Weight:{{ chosenPokemon.weight }}</li>
     </ul>
     <div class="line"></div>
     <h2>{{ pokemonType }} TYPE POKEMONS</h2>
     <div class="others">
       <section v-for="item in items" :key="item.name">
-        <router-link :to="{ name: 'Detail', params: { name: item.name } }" @click="scrollBehavior">
+        <router-link :to="{ name: 'Detail', params: { name: item.name } }">
           <img :src="item.image" />
           <ul>
             <li>{{ item.name }}</li>
@@ -25,63 +25,16 @@
 </template>
 
 <script>
+import getDetailsPagePokemon from "../services/getDetailsPagePokemons";
 export default {
   el: "Detail",
-  data() {
-    return {
-      poke1: "",
-     image: "",
-      image2: "",
-      items:[],
-      pokemonType: "",
-      name: "",
-      h1: "WHO IS THIS POKEMON?",
-      button: "TRY",
-    };
+  mixins: [getDetailsPagePokemon],
+  /* renders the chosenPoke function before assembling the page*/
+  beforeMount() {
+    this.getChosenPokemon(this.$route.params.name);
   },
-  methods: {
-    searchPoke(name) {
-      fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
-        .then((response) => response.json())
-        .then((poke1) => {
-          this.poke1 = poke1;
-          this.image = poke1.sprites.other["official-artwork"].front_default;
-          this.pokemonType = poke1.types[0].type.name.toUpperCase();
-          this.detailPoke(this.poke1.types[0].type);
-        });
-    },
-    detailPoke(type) {
-      for (let i = 0; i < 3; i++) {
-        fetch(`https://pokeapi.co/api/v2/type/${type.name}`)
-          .then((response) => response.json())
-          .then((data) => {
-            let pokemons = data.pokemon.filter(
-              (index) =>
-                index.pokemon.url && !index.pokemon.name.includes("minior")
-            );
-            let randomPosition = Math.ceil(Math.random() * pokemons.length);
-            this.requestDetailPokes(pokemons[randomPosition].pokemon.url);
-          });
-      }
-    },
-    requestDetailPokes(url) {
-      fetch(url)
-        .then((response) => response.json())
-        .then((pokemon) => {
-          this.items.push({
-            name: pokemon.name,
-            number: pokemon.id,
-            image: pokemon.sprites.other["official-artwork"].front_default,
-          });
-        });
-        
-    },
-     scrollBehavior() {
-     return { x: 0, y: 0 }
-   }
-  },
-  created() {
-    this.searchPoke(this.$route.params.name);
+  mounted() {
+    window.scrollTo(0, 0);
   },
 };
 </script>
