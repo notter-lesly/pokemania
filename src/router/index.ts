@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Pokemania from "../views/Pokemania.vue";
+import Random from "../views/Random.vue";
+import Categories from "../views/Categories.vue";
+import Detail from "../views/Detail.vue";
 
 const routes = [
   {
@@ -10,17 +13,17 @@ const routes = [
   {
     path: "/random",
     name: "Random",
-    component: () => import("../views/Random.vue"),
+    component: Random,
   },
   {
     path: "/categories",
     name: "Categories",
-    component: () => import("../views/Categories.vue"),
+    component: Categories,
   },
   {
     path: "/detail/:name",
     name: "Detail",
-    component: () => import("../views/Detail.vue"),
+    component: Detail,
   },
 ];
 

@@ -1,28 +1,29 @@
 <template>
   <div id="Random">
-    <h1>{{ h1 }}</h1>
-    <img class="randomImage" :src="image" />
-    <ul>
-      <button @click="getRandomPokemon()">{{ button }}</button>
-      <li class="h2">IT IS: {{ random.name }}</li>
-      <li>Id:{{ random.id }}</li>
-      <li>Height:{{ random.height }}</li>
-      <li>Weight: {{ random.weight }}</li>
-    </ul>
+    <!-- <div class="loading">
+      <img src="https://i.gifer.com/4xjS.gif"/>
+    </div> -->
+    <div class="content">
+      <h1>WHO IS THIS POKEMON?</h1>
+      <img class="randomImage" :src="random.image" />
+      <ul>
+        <button @click="getRandomPokemon()">Try</button>
+        <li class="h2">IT IS: {{ random.name }}</li>
+        <li>Id: {{ random.id }}</li>
+        <li>Height: {{ random.height }}</li>
+        <li>Weight: {{ random.weight }}</li>
+      </ul>
+    </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import getRandomPokemon from "../services/getRandomPokemon"
 export default {
   el: "Random",
   mixins:[getRandomPokemon],
   mounted() {
     window.scrollTo(0, 0);
-  },
-  /* renders the randomPokemon function before assembling the page*/
-  beforeMount() {
-    this.getRandomPokemon();
   },
 };
 </script>

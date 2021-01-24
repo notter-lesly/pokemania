@@ -1,15 +1,15 @@
 <template>
   <div id="Home">
-    <h1 class="subtitle">{{ subtitle }}</h1>
-    <button value="name" @click="sortByName()">Name</button>
-    <button value="value" @click="sortByNumber()">Number</button>
+    <h1 class="subtitle">CHOOSE YOUR POKEMON</h1>
+    <button :class="{ active : sortByNameClicked }" value="name" @click="sortByName()">Name</button>
+    <button :class="{ active : sortByNumberClicked }" value="value" @click="sortByNumber()">Number</button>
     <div class="pokes">
       <section v-for="pokemon in pokemons" :key="pokemon.name">
         <div>
-          <router-link :to="{ name: 'Detail', params: { name: pokemon.name } }">
+          <router-link :to="{ name: 'Detail', params: { name: pokemon.name.toString() } }">
             <img :src="pokemon.image" />
             <h2>{{ pokemon.name }}</h2>
-            <h2>{{ pokemon.number }}</h2>
+            <h2>{{ pokemon.id }}</h2>
           </router-link>
         </div>
       </section>
@@ -17,16 +17,12 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import getPokemon from "../services/getPokemon";
 export default {
   el: "Home",
   mixins: [getPokemon],
-  /* renders the getPokemon function before assembling the page*/
-  created() {
-    this.getPokemon();
-  },
-};
+}
 </script>
 
 <style scoped>
@@ -43,20 +39,22 @@ export default {
   font-family: Montserrat;
 }
 button {
-  width: 8vw;
-  background-color: rgb(167, 110, 4);
+  width: 7vw;
+  outline:none;
+  background-color:  rgb(167, 110, 4);
   color: black;
   margin-left: 4vw;
   border: solid black 0.1vw;
-  border-radius: 0.2vw;
+  border-radius: 0.5vw;
   font-family: montserrat;
   font-weight: bold;
   font-size: 1vw;
   text-align: center;
   margin-bottom: 2vw;
 }
-button :focus {
-  background-color: pink;
+.active{
+ border:5px solid rgb(255, 255, 255, 0.801);
+ 
 }
 .pokes {
   display: flex;
