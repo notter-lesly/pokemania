@@ -17,11 +17,9 @@ export default defineComponent({
     } as PageData
   },
   methods: {
-    /**
-    * getMainPagePokemons starts with a loop to fill the array. The looping starts by generating a random number 
-    * that will be used to bring a pokemon from the api according to that number. The statuses that will be 
-    * rought are image, number and name.
-    **/
+    /*getMainPagePokemons starts with a loop to fill the array. The looping starts by generating a random 
+    number that will be used to bring a pokemon from the api according to that number. The statuses that 
+    will be rought are image, number and name.*/
     getPokemon() {
       for (let i = 0; i < 10; i++) {
         let number = Math.ceil(Math.random() * 714);
@@ -36,17 +34,13 @@ export default defineComponent({
         });
       }
     },
-    /**
-    * rearrange pokemon in alphabetical order
-    **/
+    /* rearrange pokemon in alphabetical order*/
     sortByName() {
       this.sortByNameClicked = true;
       this.sortByNumberClicked = false;
       this.pokemons.sort((a, b) => (a.name > b.name) ? 1 : -1)
     },
-    /**
-    * rearranges pokemon in numerical order
-    **/
+    /* rearranges pokemon in numerical order*/
     sortByNumber() {
       this.sortByNameClicked = false;
       this.sortByNumberClicked = true;
