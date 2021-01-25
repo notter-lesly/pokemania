@@ -1,11 +1,14 @@
 import { defineComponent } from 'vue';
 import axios from "axios";
 import Pokemon from "@/models/Pokemon"
+import PageLoading from "../components/pageLoading.vue";
 
 interface PageData{
   additionalPokemons: Pokemon[];
   chosenPokemon: Pokemon,
-}
+  isLoading:boolean,
+
+ }
 
 export default defineComponent({
     data() {
@@ -15,8 +18,12 @@ export default defineComponent({
             id: 0, 
             image: ''
           },
+          isLoading:true,
           additionalPokemons: [],
         } as PageData;
+      },
+      components:{
+        PageLoading
       },
     methods: {
       /* this function receives the name parameter passed through the route (when you clicked on a pokemon on
@@ -24,7 +31,6 @@ export default defineComponent({
       related to that name, to use in the function below. */
       async getChosenPokemon(pokemonName: string) {
         const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`)
-
         const { name, id, weight, height } = response.data;
         this.chosenPokemon = {
           name: name.toUpperCase(),
@@ -46,14 +52,12 @@ export default defineComponent({
         const response = await axios.get(`https://pokeapi.co/api/v2/type/${type.toLowerCase()}`)
         const { data } = response;
         let pokemons = data.pokemon.filter((index: any) => index.pokemon.url);
-
         while (this.additionalPokemons.length < 3){
-          
-          let randomPosition = Math.ceil(Math.random() * pokemons.length);
+          let randomPosition = Math.floor(Math.random() * pokemons.length);
           let url = pokemons[randomPosition].pokemon.url;
-
           await this.getPokemonByUrl(url);
         }
+        this.isLoading=false
       },
       /*this function receives the url of the previous function and fills the array with name, id and image*/
       async getPokemonByUrl(url: string) {

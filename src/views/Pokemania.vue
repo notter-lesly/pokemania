@@ -54,7 +54,6 @@ button {
 }
 .active{
  border:5px solid rgb(255, 255, 255, 0.801);
- 
 }
 .pokes {
   display: flex;

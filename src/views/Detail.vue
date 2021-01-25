@@ -1,13 +1,20 @@
 <template>
   <div id="Detail">
+     <div class="loading" v-if =isLoading>
+      <PageLoading/>
+      </div>
+ <div  v-else>
     <h1>{{ chosenPokemon.name }}</h1>
     <img :src="chosenPokemon.image" />
+   
+     
     <ul>
       <li>Name: {{ chosenPokemon.name }}</li>
       <li>Id: {{ chosenPokemon.id }}</li>
       <li>Height: {{ chosenPokemon.height }}</li>
       <li>Weight: {{ chosenPokemon.weight }}</li>
     </ul>
+   
     <div class="line"></div>
     <h2>{{ chosenPokemon.type }} TYPE POKEMONS</h2>
     <div class="others">
@@ -22,6 +29,7 @@
       </section>
     </div>
   </div>
+   </div>
 </template>
 
 <script lang="ts">
@@ -80,5 +88,8 @@ export default {
   margin: auto;
   margin-top: 4vw;
   margin-bottom: 4vw;
+}
+.loading{
+  padding-top:5vw;
 }
 </style>
