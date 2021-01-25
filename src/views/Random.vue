@@ -1,9 +1,6 @@
 <template>
   <div id="Random">
-    <!-- <div class="loading">
-      <img src="https://i.gifer.com/4xjS.gif"/>
-    </div> -->
-    <div class="content">
+     <div class="content">
       <h1>WHO IS THIS POKEMON?</h1>
       <img class="randomImage" :src="random.image" />
       <ul>
